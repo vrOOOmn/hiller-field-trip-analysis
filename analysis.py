@@ -195,7 +195,7 @@ heat_data = [[row['Latitude'], row['Longitude']] for index, row in df_analyzed.i
 HeatMap(heat_data).add_to(bay_area_map)
 
 # Save the map to an HTML file
-bay_area_map.save('Hiller School Heatmap.html')
+bay_area_map.save('Hiller Schools Heatmap.html')
 
-print("Heatmap saved to bay_area_heatmap.html")
+print("Heatmap saved to Hiller Schools Heatmap.html")
 print(df_analyzed['School'].value_counts())
