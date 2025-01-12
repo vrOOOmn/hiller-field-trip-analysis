@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 from nltk.corpus import stopwords
 from geopy.geocoders import Nominatim
 from geopy.exc import GeocoderTimedOut, GeocoderUnavailable
+from geopy.point import Point
 import certifi
 import folium
 from folium.plugins import HeatMap
@@ -171,7 +172,7 @@ geolocator = Nominatim(user_agent="school_geocoder", ssl_context=ssl_context, ti
 # Geocoding function to get latitude and longitude
 def get_geocode(address, geolocator, retries=3):
     try:
-        location = geolocator.geocode(address)
+        location = geolocator.geocode(address, viewbox = [Point(37.19, -122.60), Point(38.03, -121.73)], bounded = True)
         if location:
             return location.latitude, location.longitude
     except (GeocoderTimedOut, GeocoderUnavailable) as e:
